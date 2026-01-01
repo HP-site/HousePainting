@@ -168,7 +168,7 @@
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">Ready for a Transformation?</h2>
                 <p class="text-lg text-center mb-10 font-light">Contact us today for a detailed quote on your project.</p>
 
-                <form id="contact-form" class="space-y-6">
+                <form action="https://formspree.io/f/mgvdaeqo" method="POST" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
                         <input type="text" id="name" name="name" required
@@ -184,6 +184,7 @@
                         <textarea id="details" name="details" rows="4" required
                             class="w-full px-4 py-3 border border-primary-black/30 rounded-lg focus:ring-primary-black focus:border-primary-black/50 outline-none"></textarea>
                     </div>
+                    
                     <button type="submit"
                         class="w-full flex items-center justify-center px-8 py-3 bg-primary-black text-white font-medium rounded-lg hover:bg-gray-800 transition duration-300 shadow-xl">
                         Submit Quote Request
@@ -237,53 +238,6 @@
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
 
-        // Form Submission Logic for Formspree
-        const contactForm = document.getElementById('contact-form');
-        const FORMSPREE_URL = "https://formspree.io/f/mgvdaeqo";
-
-        contactForm.addEventListener('submit', async function (e) {
-            e.preventDefault();
-            
-            const submitBtn = e.target.querySelector('button[type="submit"]');
-            const originalText = submitBtn.innerHTML;
-            
-            // Visual feedback
-            submitBtn.innerHTML = 'Sending...';
-            submitBtn.disabled = true;
-
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                const response = await fetch(FORMSPREE_URL, {
-                    method: 'POST',
-                    body: JSON.stringify(data),
-                    headers: {
-                        'Accept': 'application/json',
-                        'Content-Type': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    submitBtn.innerHTML = 'Request Sent!';
-                    submitBtn.classList.replace('bg-primary-black', 'bg-green-600');
-                    contactForm.reset();
-                } else {
-                    throw new Error('Failed to send');
-                }
-            } catch (error) {
-                submitBtn.innerHTML = 'Error! Try again.';
-                submitBtn.classList.replace('bg-primary-black', 'bg-red-600');
-            } finally {
-                setTimeout(() => {
-                    submitBtn.innerHTML = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('bg-green-600', 'bg-red-600');
-                    submitBtn.classList.add('bg-primary-black');
-                }, 4000);
-            }
-        });
-
         // Modal Logic
         const modal = document.getElementById('portfolio-modal');
         const openModalBtn = document.getElementById('open-portfolio-modal');
@@ -321,5 +275,4 @@
     </script>
 </body>
 </html>
-
 
