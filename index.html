@@ -4,57 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House Painting</title>
+    <title>House Painting | Precision & Quality</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* Define the custom font and the textured background */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700;800;900&display=swap');
 
         :root {
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Subtle white wall textured background */
         .textured-bg {
             background-color: #ffffff;
-            /* Base white color */
-            /* Add a very subtle, low-opacity noise/grain effect for texture */
             background-image: radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
                 radial-gradient(rgba(0,0,0,0.02) 1px, #ffffff 1px);
             background-size: 6px 6px;
             background-position: 0 0, 3px 3px;
         }
 
-        /* Set all text to black unless specified otherwise */
         body {
             color: #000000;
+            scroll-behavior: smooth;
         }
 
-        /* Ensure icon visibility */
         .icon {
             stroke: #000000;
             fill: none;
-        }
-
-        /* --- CUSTOM PARALLAX EFFECT CSS --- */
-        .parallax-bg {
-            /* Set a noticeable height for the scrolling effect */
-            height: 350px;
-            background-size: cover;
-            background-position: center center;
-            /* This is the key property that keeps the image fixed while content scrolls */
-            background-attachment: fixed;
-            /* Fallback background color if image isn't found */
-            background-color: #f0f0f0;
-        }
-
-        /* Standard background style for the non-parallax images (for consistency) */
-        .standard-bg {
-            height: 256px;
-            /* h-64 equivalent */
-            background-size: cover;
-            background-position: center center;
         }
     </style>
     <script>
@@ -73,14 +48,12 @@
 
 <body class="textured-bg min-h-screen">
 
-    <Header class="bg-white/90 shadow-sm sticky top-0 z-10 border-b border-primary-black/10 backdrop-blur-sm">
+    <header class="bg-white/90 shadow-sm sticky top-0 z-10 border-b border-primary-black/10 backdrop-blur-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <div href="#" class="text-xl font-extrabold tracking-tight flex items-center">
-
-                    <img src="HP Logo.png" alt="HP Logo" class="h-16 w-18 mr-2">
+                <div class="text-xl font-extrabold tracking-tight flex items-center">
+                    <img src="HP Logo.png" alt="HP Logo" class="h-16 w-auto mr-2">
                 </div>
-
 
                 <nav class="hidden md:flex space-x-8 text-sm font-medium">
                     <a href="#home" class="hover:text-gray-600 transition duration-150">Home</a>
@@ -89,24 +62,20 @@
                     <a href="#contact" class="hover:text-gray-600 transition duration-150">Get a Quote</a>
                 </nav>
 
-
                 <button id="mobile-menu-button"
                     class="md:hidden p-2 rounded-md hover:bg-accent-grey transition duration-150">
                     <i data-lucide="menu" class="icon w-6 h-6"></i>
                 </button>
-
             </div>
         </div>
 
-
-        <div id="mobile-menu" class="hidden md:hidden pb-2 border-t border-primary-black/10">
+        <div id="mobile-menu" class="hidden md:hidden pb-2 border-t border-primary-black/10 bg-white">
             <a href="#home" class="block px-4 py-2 text-base font-medium hover:bg-accent-grey">Home</a>
             <a href="#portfolio" class="block px-4 py-2 text-base font-medium hover:bg-accent-grey">Portfolio</a>
             <a href="#services" class="block px-4 py-2 text-base font-medium hover:bg-accent-grey">Services</a>
             <a href="#contact" class="block px-4 py-2 text-base font-medium hover:bg-accent-grey">Get a Quote</a>
         </div>
-    </Header>
-
+    </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-20">
 
@@ -125,126 +94,98 @@
             </a>
         </section>
 
-
         <section id="portfolio" class="text-center">
-            <h2 class="text-3xl sm:text-4xl font-bold mb-10 border-b-2 border-primary-black pb-2 inline-block">Our Recent
-                Work</h2>
-
+            <h2 class="text-3xl sm:text-4xl font-bold mb-10 border-b-2 border-primary-black pb-2 inline-block">Our Recent Work</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                <div class="rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-primary-black/20">
-                    <div class="p-6 text-left bg-white">
+                <div class="rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-primary-black/20 bg-white">
+                    <div class="p-6 text-left">
                         <h3 class="text-xl font-semibold mb-2">Residential Addition</h3>
-                        <p class="text-sm text-gray-700">Gray walls with clean white trim.</p>
-                    <div class="h-96 overflow-y-scroll bg-gray-100">
-                        <img src="Interior 1.png" alt="Interior Picture" class="w-full h-auto object-cover">
-                        <img src="Interior 2.png" alt="Interior Picture" class="w-full h-auto object-cover mt-2">
-                    </div>
-                    
+                        <p class="text-sm text-gray-700 mb-4">Gray walls with clean white trim.</p>
+                        <div class="h-96 overflow-y-scroll bg-gray-100 rounded-lg">
+                            <img src="Interior 1.png" alt="Interior Picture" class="w-full h-auto object-cover">
+                            <img src="Interior 2.png" alt="Interior Picture" class="w-full h-auto object-cover mt-2">
+                        </div>
                     </div>
                 </div>
 
-
-                <div class="rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-primary-black/20">
-                    <div class="p-6 text-left bg-white">
+                <div class="rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-primary-black/20 bg-white">
+                    <div class="p-6 text-left">
                         <h3 class="text-xl font-semibold mb-2">Full Exterior</h3>
-                        <p class="text-sm text-gray-700">A stunning blue exterior with bright white trim. House & Garage
-                        </p>
-                    <div class="h-96 overflow-y-scroll bg-gray-100">
-                        <img src="Exterior 1.png" alt="Exterior Picture" class="w-full h-auto object-cover">
-                        <img src="Exterior 2.png" alt="Exterior Picture" class="w-full h-auto object-cover mt-2">
-                    </div>
-                    
+                        <p class="text-sm text-gray-700 mb-4">A stunning blue exterior with bright white trim.</p>
+                        <div class="h-96 overflow-y-scroll bg-gray-100 rounded-lg">
+                            <img src="Exterior 1.png" alt="Exterior Picture" class="w-full h-auto object-cover">
+                            <img src="Exterior 2.png" alt="Exterior Picture" class="w-full h-auto object-cover mt-2">
+                        </div>
                     </div>
                 </div>
 
+                <div class="rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-primary-black/20 bg-white">
+                    <div class="p-6 text-left">
+                        <h3 class="text-xl font-semibold mb-2">Deck & Fence</h3>
+                        <p class="text-sm text-gray-700 mb-4">Beautiful semi translucent stain.</p>
+                        <div class="h-96 overflow-y-scroll bg-gray-100 rounded-lg">
+                            <img src="Deck.png" alt="Deck Picture" class="w-full h-auto object-cover">
+                            <img src="Fence.png" alt="Fence Picture" class="w-full h-auto object-cover mt-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="rounded-xl overflow-hidden shadow-2xl transition duration-300 hover:shadow-primary-black/20">
-                <div class="p-6 text-left bg-white">
-<h3 class="text-xl font-semibold mb-2">Deck & Fence</h3>
-<p class="text-sm text-gray-700">Beautiful semi translucent stain
-</p>
-<div class="h-96 overflow-y-scroll bg-gray-100">
-    <img src="Deck.png" alt="Exterior Picture" class="w-full h-auto object-cover">
-    <img src="Fence.png" alt="Exterior Picture" class="w-full h-auto object-cover mt-2">
-</div>
-
-</div>
-</div>
-
-            <a href="#contact"
+            <a href="#" id="open-portfolio-modal"
                 class="mt-8 inline-block text-lg font-medium underline hover:text-gray-600 transition duration-150">
                 See more examples &raquo;
             </a>
         </section>
 
-
-        <section id="services" class="py-10">
-            <h2
-                class="text-3xl sm:text-4xl font-bold mb-10 text-center border-b-2 border-primary-black pb-2 inline-block mx-auto">
-                Our Services</h2>
+        <section id="services" class="py-10 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-10 border-b-2 border-primary-black pb-2 inline-block">Our Services</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-
-                <div class="p-6 border border-primary-black/20 rounded-xl bg-white shadow-lg text-center">
+                <div class="p-6 border border-primary-black/20 rounded-xl bg-white shadow-lg">
                     <i data-lucide="home" class="icon w-8 h-8 mx-auto mb-4 stroke-2"></i>
                     <h3 class="text-xl font-semibold mb-2">Residential Painting</h3>
                     <p class="text-sm text-gray-700">Complete interior and exterior painting for homes of any size.</p>
                 </div>
-
-                <div class="p-6 border border-primary-black/20 rounded-xl bg-white shadow-lg text-center">
+                <div class="p-6 border border-primary-black/20 rounded-xl bg-white shadow-lg">
                     <i data-lucide="building" class="icon w-8 h-8 mx-auto mb-4 stroke-2"></i>
                     <h3 class="text-xl font-semibold mb-2">Commercial Projects</h3>
-                    <p class="text-sm text-gray-700">Professional, timely service for offices, retail, and industrial
-                        spaces.</p>
+                    <p class="text-sm text-gray-700">Professional service for offices, retail, and industrial spaces.</p>
                 </div>
-
-
-                <div class="p-6 border border-primary-black/20 rounded-xl bg-white shadow-lg text-center">
+                <div class="p-6 border border-primary-black/20 rounded-xl bg-white shadow-lg">
                     <i data-lucide="pencil-ruler" class="icon w-8 h-8 mx-auto mb-4 stroke-2"></i>
                     <h3 class="text-xl font-semibold mb-2">Trim & Detailing</h3>
-                    <p class="text-sm text-gray-700">Focus on the details, including trim, cabinetry, and crown molding.
-                    </p>
+                    <p class="text-sm text-gray-700">Focus on the details: trim, cabinetry, and crown molding.</p>
                 </div>
-
-                <div class="p-6 border border-primary-black/20 rounded-xl bg-white shadow-lg text-center">
+                <div class="p-6 border border-primary-black/20 rounded-xl bg-white shadow-lg">
                     <i data-lucide="brush" class="icon w-8 h-8 mx-auto mb-4 stroke-2"></i>
                     <h3 class="text-xl font-semibold mb-2">Surface Prep</h3>
-                    <p class="text-sm text-gray-700">Full patching, sanding, and priming to ensure a perfect, durable
-                        finish.</p>
+                    <p class="text-sm text-gray-700">Patching, sanding, and priming for a perfect finish.</p>
                 </div>
             </div>
         </section>
 
-
-        <section id="contact"
-            class="py-16 bg-accent-grey rounded-xl shadow-2xl border border-primary-black/10">
+        <section id="contact" class="py-16 bg-accent-grey rounded-xl shadow-2xl border border-primary-black/10">
             <div class="max-w-4xl mx-auto px-6">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">Ready for a Transformation?</h2>
-                <p class="text-lg text-center mb-10 font-light">
-                    Contact us today for a detailed, no-obligation quote on your next project.
-                </p>
-
+                <p class="text-lg text-center mb-10 font-light">Contact us today for a detailed quote on your project.</p>
 
                 <form class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
                         <input type="text" id="name" name="name" required
-                            class="w-full px-4 py-3 border border-primary-black/30 rounded-lg focus:ring-primary-black focus:border-primary-black/50 transition duration-150">
+                            class="w-full px-4 py-3 border border-primary-black/30 rounded-lg focus:ring-primary-black focus:border-primary-black/50 outline-none">
                     </div>
                     <div>
                         <label for="email" class="block text-sm font-medium mb-1">Email Address</label>
                         <input type="email" id="email" name="email" required
-                            class="w-full px-4 py-3 border border-primary-black/30 rounded-lg focus:ring-primary-black focus:border-primary-black/50 transition duration-150">
+                            class="w-full px-4 py-3 border border-primary-black/30 rounded-lg focus:ring-primary-black focus:border-primary-black/50 outline-none">
                     </div>
                     <div>
-                        <label for="details" class="block text-sm font-medium mb-1">Project Details (e.g., Interior, 3
-                            Bedrooms)</label>
+                        <label for="details" class="block text-sm font-medium mb-1">Project Details</label>
                         <textarea id="details" name="details" rows="4" required
-                            class="w-full px-4 py-3 border border-primary-black/30 rounded-lg focus:ring-primary-black focus:border-primary-black/50 transition duration-150"></textarea>
+                            class="w-full px-4 py-3 border border-primary-black/30 rounded-lg focus:ring-primary-black focus:border-primary-black/50 outline-none"></textarea>
                     </div>
-
                     <button type="submit"
-                        class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-lg text-white bg-primary-black hover:bg-gray-800 transition duration-300 shadow-xl hover:shadow-primary-black/40">
+                        class="w-full flex items-center justify-center px-8 py-3 bg-primary-black text-white font-medium rounded-lg hover:bg-gray-800 transition duration-300 shadow-xl">
                         Submit Quote Request
                         <i data-lucide="send" class="icon w-4 h-4 ml-2 text-white stroke-2"></i>
                     </button>
@@ -253,74 +194,97 @@
         </section>
 
     </main>
+    
+    <div id="portfolio-modal" class="fixed inset-0 bg-primary-black/95 z-50 hidden transition-opacity duration-300 overflow-y-auto">
+        <div class="max-w-7xl mx-auto py-10 px-4">
+            <div class="flex justify-end mb-6">
+                <button id="close-modal-button" class="text-white p-2"><i data-lucide="x" class="w-8 h-8"></i></button>
+            </div>
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Complete Portfolio Gallery</h2>
+            <div id="modal-image-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        </div>
+    </div>
 
-
-    <footer
-        class="mt-20 py-8 border-t border-primary-black/10 text-center text-sm text-gray-700 bg-white/50 backdrop-blur-sm">
-
-        <div class="flex justify-center space-x-6 mb-4">
-            <a href="https://www.facebook.com/TysonsHousePainting" target="_blank"
-                aria-label="Find us on Facebook" class="hover:opacity-75 transition duration-150">
+    <footer class="mt-20 py-12 border-t border-primary-black/10 text-center text-sm text-gray-700 bg-white/50 backdrop-blur-sm">
+        
+        <div class="flex justify-center space-x-6 mb-6">
+            <a href="https://www.facebook.com/TysonsHousePainting" target="_blank" class="hover:opacity-75 transition duration-150">
                 <img src="F Logo.png" alt="Facebook Logo" class="h-7 w-7">
             </a>
-            <a href="https://share.google/hXb7f3uhV8uOr73aP" target="_blank"
-                aria-label="Check our Google Reviews" class="hover:opacity-75 transition duration-150">
+            <a href="https://share.google/hXb7f3uhV8uOr73aP" target="_blank" class="hover:opacity-75 transition duration-150">
                 <img src="G Logo.png" alt="Google Logo" class="h-7 w-7">
             </a>
         </div>
-        <p>House Painting | housepainting17@gmail.com| 403-471-3822</p>
-    </div>
+
+        <div class="mb-8">
+            <p class="font-bold text-primary-black uppercase tracking-widest mb-1">House Painting</p>
+            <p>housepainting17@gmail.com | 403-471-3822</p>
+        </div>
+
+        <div class="flex flex-col items-center justify-center pt-6 border-t border-primary-black/5 max-w-xs mx-auto">
+            <img src="HousePainting SiteQR.png" alt="Site QR Code" class="h-32 w-32 shadow-md rounded-lg mb-2 bg-white p-1">
+            <p class="text-[10px] text-gray-400 uppercase tracking-tighter">Scan to share or save our site</p>
+        </div>
+        
+        <p class="mt-8 text-xs text-gray-400">&copy; 2026 House Painting. All rights reserved.</p>
     </footer>
 
-
     <script>
-        // Render Lucide Icons
         lucide.createIcons();
 
+        // Mobile Menu
+        const btn = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => menu.classList.toggle('hidden'));
 
-        // Mobile Menu Toggle Logic
-        document.getElementById('mobile-menu-button').addEventListener('click', function () {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
-        });
-
-
-        // Simple smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                // Close mobile menu after clicking a link
-                document.getElementById('mobile-menu').classList.add('hidden');
-            });
-        });
-
-
-        // Prevent default submit action for the form
+        // Form Submission
         document.querySelector('form').addEventListener('submit', function (e) {
             e.preventDefault();
-            // In a real application, you would send this data to a server.
-            console.log('Quote Request Submitted!');
-            // Show a custom success message (replacing alert())
-            const submitButton = e.target.querySelector('button[type="submit"]');
-            submitButton.innerHTML = '<i data-lucide="check-circle" class="icon w-5 h-5 mr-2 text-white stroke-2"></i> Request Sent!';
-            submitButton.classList.remove('bg-primary-black', 'hover:bg-gray-800');
-            submitButton.classList.add('bg-green-600', 'hover:bg-green-700');
-            lucide.createIcons(); // Re-render icon
-
+            const btn = e.target.querySelector('button[type="submit"]');
+            btn.innerHTML = 'Request Sent!';
+            btn.classList.replace('bg-primary-black', 'bg-green-600');
             setTimeout(() => {
-                // Reset button text after a few seconds
-                submitButton.innerHTML = 'Submit Quote Request <i data-lucide="send" class="icon w-4 h-4 ml-2 text-white stroke-2"></i>';
-                submitButton.classList.remove('bg-green-600', 'hover:bg-green-700');
-                submitButton.classList.add('bg-primary-black', 'hover:bg-gray-800');
-                lucide.createIcons();
+                btn.innerHTML = 'Submit Quote Request';
+                btn.classList.replace('bg-green-600', 'bg-primary-black');
                 e.target.reset();
             }, 3000);
         });
+
+        // Modal Logic
+        const modal = document.getElementById('portfolio-modal');
+        const openModalBtn = document.getElementById('open-portfolio-modal');
+        const closeModalBtn = document.getElementById('close-modal-button');
+        const grid = document.getElementById('modal-image-grid');
+
+        const images = [
+            { src: 'Interior 1.png', alt: 'Residential Addition - Interior' },
+            { src: 'Exterior 1.png', alt: 'Full Exterior - Blue Stucco' },
+            { src: 'Deck.png', alt: 'Deck - Cedar Stain' },
+            { src: 'Interior 2.png', alt: 'Residential Addition - Hallway' },
+            { src: 'Exterior 2.png', alt: 'Full Exterior - Garage Detail' },
+            { src: 'Fence.png', alt: 'Fence - Protective Stain' }
+        ];
+
+        openModalBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            grid.innerHTML = images.map(img => `
+                <div class="bg-white/10 rounded-lg overflow-hidden">
+                    <img src="${img.src}" alt="${img.alt}" class="w-full h-auto" onerror="this.src='https://placehold.co/600x400?text=Image+Not+Found'">
+                    <p class="p-2 text-gray-300 text-xs text-center">${img.alt}</p>
+                </div>
+            `).join('');
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        });
+
+        const close = () => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        };
+        closeModalBtn.addEventListener('click', close);
+        modal.addEventListener('click', (e) => { if(e.target === modal) close(); });
     </script>
-
 </body>
-
 </html>
+
