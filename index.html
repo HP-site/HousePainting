@@ -168,7 +168,7 @@
                 <h2 class="text-3xl sm:text-4xl font-bold mb-4 text-center">Ready for a Transformation?</h2>
                 <p class="text-lg text-center mb-10 font-light">Contact us today for a detailed quote on your project.</p>
 
-                <form class="space-y-6">
+                <form id="contact-form" class="space-y-6">
                     <div>
                         <label for="name" class="block text-sm font-medium mb-1">Full Name</label>
                         <input type="text" id="name" name="name" required
@@ -237,17 +237,51 @@
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
 
-        // Form Submission
-        document.querySelector('form').addEventListener('submit', function (e) {
+        // Form Submission Logic for Formspree
+        const contactForm = document.getElementById('contact-form');
+        const FORMSPREE_URL = "https://formspree.io/f/mgvdaeqo";
+
+        contactForm.addEventListener('submit', async function (e) {
             e.preventDefault();
-            const btn = e.target.querySelector('button[type="submit"]');
-            btn.innerHTML = 'Request Sent!';
-            btn.classList.replace('bg-primary-black', 'bg-green-600');
-            setTimeout(() => {
-                btn.innerHTML = 'Submit Quote Request';
-                btn.classList.replace('bg-green-600', 'bg-primary-black');
-                e.target.reset();
-            }, 3000);
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Visual feedback
+            submitBtn.innerHTML = 'Sending...';
+            submitBtn.disabled = true;
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                const response = await fetch(FORMSPREE_URL, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    submitBtn.innerHTML = 'Request Sent!';
+                    submitBtn.classList.replace('bg-primary-black', 'bg-green-600');
+                    contactForm.reset();
+                } else {
+                    throw new Error('Failed to send');
+                }
+            } catch (error) {
+                submitBtn.innerHTML = 'Error! Try again.';
+                submitBtn.classList.replace('bg-primary-black', 'bg-red-600');
+            } finally {
+                setTimeout(() => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('bg-green-600', 'bg-red-600');
+                    submitBtn.classList.add('bg-primary-black');
+                }, 4000);
+            }
         });
 
         // Modal Logic
@@ -287,4 +321,5 @@
     </script>
 </body>
 </html>
+
 
